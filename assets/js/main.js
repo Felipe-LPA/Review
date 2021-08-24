@@ -11,7 +11,16 @@ que exigem conhecimento prévio antes de possuir o mesmo.
 
 **Comando Debugger - Pausa a lógica para verificar a mesma.
 
-String 
+
+
+
+// ---------------------------------------------------------------------------------------------
+// ------------------------------- STRING  -----------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+
+
+
 
 Comparar strings sem distinção camelcase utilizar função para mudar para uppercase
 antes da comparação. Ex:
@@ -116,7 +125,9 @@ let aux = "";
 // passado como (param).
 // console.log(num.toString(2), obj.toString())
 
-// ------------------------------- MATH && Number -----------------------------------------------
+// ---------------------------------------------------------------------------------------------
+// ------------------------------- MATH && Number ----------------------------------------------
+// ---------------------------------------------------------------------------------------------
 
 let num1 = 10;
 let num2 = 21.9283198;
@@ -180,9 +191,11 @@ let arrNum = [1, 5, 32, -2, 4, 55, 621, -25, 82, 3];
 // const NumRandom = (max, min, value) => Number((value * (max - min) + min).toFixed())
 // console.log(NumRandom(1, 10, random))
 
-// ------------------------------- ARRAY -----------------------------------------------
+// ---------------------------------------------------------------------------------------------
+// ------------------------------- ARRAY -------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
 
-const auxArr = []
+const auxArr = [];
 const arr1 = [1, 2, 3, 4, 5];
 const arr2 = [6, 7, 8, 9, 10];
 const arrName = ["Felipe", "Luiz", "Pontes", "de", "Andrade"];
@@ -223,9 +236,11 @@ const arrName = ["Felipe", "Luiz", "Pontes", "de", "Andrade"];
 // [primeiro, segundo, terceiro, quarto, quinto] = [...arr1]
 // console.log(primeiro, segundo, terceiro, quarto, quinto)
 
-// o método splice pode adicionar, remover índices de acordo com (param) que são (start, deleteCount, item1, itemN),
+// o método splice pode adicionar, remover índices de acordo com (param) que são (start, deleteCount, item1,
+// itemN),
 // somente o start é obrigatório.
-// com somente o start ele modificao array original de acordo com o (param) e caso passado para uma variável o valor
+// com somente o start ele modificao array original de acordo com o (param) e caso passado para uma variável
+// o valor
 // retirado é passado para a mesma.
 // auxArr.push(arr1.splice(-1))
 // console.log(`arr1: ${arr1}, auxArr: ${auxArr}`)
@@ -236,3 +251,103 @@ const arrName = ["Felipe", "Luiz", "Pontes", "de", "Andrade"];
 // arr1.splice(arr1.length, 0, ...auxArr)
 // console.log(`arr1: ${arr1}, auxArr: ${auxArr}`)
 
+// o metodo forEach itera um array, percorrendo todos os indices do array conforme função anonima passada
+// como (param)
+// arr1.forEach((item, indice, array) => console.log(`item: ${item}, indice: ${indice}, array: ${array}`))
+
+// O método indexOf retorna o indice do que foi passado como (param)
+// console.log(arr2.indexOf(8))
+
+// O método slice retorna o array com range passado como (param)
+// auxArr.push(arr1.slice())
+// auxArr.push(arr2.slice(1,3))
+// console.log(auxArr)
+
+// ---------------------------------------------------------------------------------------------
+// ------------------------------- FUNCTION ----------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// passar um (param) atribuindo um valor faz com que esse valor seja padrão para quando este
+// argumento não receber um valor quando a função foi executada.
+// const func = ( n=2 ) => { console.log(n) }
+// func(3)
+// func()
+
+// Quandos estiver trabalhando no formado procedural é recomendado emglobar todo o código dentro
+// de uma função para evitar o escopo global.
+
+// a declaração function(){} sofre hoisting, portanto podem ser utilizadas antes da declaração.
+// em hoisting somente a declaração sofre elevação, o valor não.
+
+// argumentos passados como (param) sem serem declarados no escopo podem ser acessados pelo
+// atributo arguments. *** arrow func não pode usar o arguments ***
+// function func () {
+//   let total = 0;
+//   for(argumento of arguments){
+//       total += argumento
+//   }
+//   console.log(total);
+// };
+
+// no caso da array func é necessário usar o rest para armazenar os (param) não declarados e caso 
+// a função possua (param) declarados o rest precisa ser o último (param)
+// const func = ( ...args) => {
+//     let total = 0;
+//     for(arg of args){
+//         total += arg
+//     }
+//     console.log(total, typeof args)
+// }
+// // Ambos (rest e arguments) ~ são do tipo Object.
+
+// func(1, 2, 3, 4, 5);
+// func(10, 20, 3, 1);
+
+// O destructuring tanto de objetos com o array podem ser utilizados como (param) de uma função
+// const func = ([primeiro,segundo]) => {
+//     console.log(primeiro+segundo)
+// }
+// func(arr1)
+
+// Closure functions são funções que retornam outras funções para usos específicos. a primeira chamada da
+// função se refere a função mais externa, depois 1 nível mais interno e assim consecutivamente até o último
+// return que não for uma função.
+// const func = (x) => {
+//     return function(y) {
+//         return function(z) {
+//             return x + y + z
+//         }
+//     }
+// }
+// const add5 = func(5)
+// const add7 = add5(7)
+// console.log(add7(10))
+
+// IIFE é a função que se auto-executa no momento de sua declaração.
+// (function( n=2 ){console.log(n)}())
+// !function( n=2 ){console.log(n)}()
+
+// Em uma função, quando se utilizado o "this" há uma diferença com as notações arrow func e a function(){}
+// na notação arrow func o "this" preserva o escopo global do objeto que ela está já na segunda notação o 
+// "this" vai mudar conforme a função se torna mais interna.
+
+const buttonEL = document.querySelector('#enviar')
+console.log(buttonEL)
+buttonEL.addEventListener('click', (e) =>{
+    e.preventDefault();
+    console.log(`arrow function: ${this}`)
+})
+buttonEL.addEventListener('click', function(e){
+    e.preventDefault();
+    console.log(`function(){}: ${this}`)
+})
+
+// para preservar o contexto do this mesmo com functions mais internas é necessário o .bind
+
+function func(e) {
+    e.preventDefault();
+    console.log(`function(){}: ${this}`)
+}
+const funcBind = func.bind(window)
+
+buttonEL.addEventListener('click', funcBind)

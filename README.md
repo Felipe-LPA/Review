@@ -4,3 +4,4 @@
 :two: STRING
 :three: MATH
 :four: ARRAY
+:five: FUNCTION
