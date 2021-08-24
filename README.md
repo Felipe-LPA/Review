@@ -1,3 +1,7 @@
+## repositório para revisão de JS básico
+
+...in Dev
+
 ## Revisões adicionadas
 
 :one: Método ATER
@@ -5,3 +9,4 @@
 :three: MATH
 :four: ARRAY
 :five: FUNCTION
+
