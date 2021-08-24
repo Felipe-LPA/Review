@@ -251,10 +251,6 @@ const arrName = ["Felipe", "Luiz", "Pontes", "de", "Andrade"];
 // arr1.splice(arr1.length, 0, ...auxArr)
 // console.log(`arr1: ${arr1}, auxArr: ${auxArr}`)
 
-// o metodo forEach itera um array, percorrendo todos os indices do array conforme função anonima passada
-// como (param)
-// arr1.forEach((item, indice, array) => console.log(`item: ${item}, indice: ${indice}, array: ${array}`))
-
 // O método indexOf retorna o indice do que foi passado como (param)
 // console.log(arr2.indexOf(8))
 
@@ -262,6 +258,60 @@ const arrName = ["Felipe", "Luiz", "Pontes", "de", "Andrade"];
 // auxArr.push(arr1.slice())
 // auxArr.push(arr2.slice(1,3))
 // console.log(auxArr)
+
+// o metodo forEach itera um array, percorrendo todos os indices do array conforme função anonima passada
+// como (param)
+// arr1.forEach((item, indice, array) => console.log(`item: ${item}, indice: ${indice}, array: ${array}`))
+
+// além do forEach existem outras formas para iterar um array.
+
+// forin itera o array de acordo com seu tamanho e pode utilizar o indice para acessar seus valores
+// for(const i in arr1){
+//     console.log(arr1[i])
+// }
+
+// forof itera o array de acordo com seu tamanho e acessa seus valores diretamente.
+// for(const num of arr2){
+//     console.log(num)
+// }
+
+// e então temos o filter, map e reduce que fazem a iteração em arrays de formas bem específicas 
+// e de alguma forma se complementam
+
+// o map pode receber 3 (param) element, index e array, porém somente o element é obrigatório, 
+// este método retorna um array com o mesmo tamanho do original com seus valores atualizados 
+// de acordo com a função passada, esta função pode ser anõnima ou de callback.
+let auxArr1
+// auxArr1 = arr1.map((num, indice, array) => [indice, num*2, array])
+// console.log(auxArr1)
+// auxArr1.forEach(item => console.log(`indice: ${item[0]}, valor: ${item[1]}, array: ${item[2]}`))
+
+// o filter pode receber 3 (param) element, index e array, porém somente o element é obrigatório, 
+// este método retorna um array com mesmo tamanho ou menor do que o original, visto que os valores
+// do array podem ou não atender o filtro passado como para a função.
+// auxArr1 = arr1.filter((num, indice, array) => {
+//     console.log(num, indice, array)
+//     return num % 2 === 0
+// })
+// console.log(auxArr1)
+
+// o reduce pode receber 5 (param) previusValue, currentValue, index, array e initialValue sendo 
+// obrigatório somente os 2 primeiros, este método retorna um dado de acordo com o passado como
+// valor inicial ou valores do array
+// auxArr1 = arr1.reduce((accumulator, num, index, array) => {
+//     console.log(accumulator, num, index, array)
+//     return accumulator + num;
+// }, 0)
+
+// console.log(auxArr1)
+
+// como mencionado os 3 podem se complementar.
+
+// auxArr1 = arr1.filter(num => num % 2 === 0).map(num => num * 2).reduce((ac, num) => ac + num, 0)
+// console.log(auxArr1)
+
+
+
 
 // ---------------------------------------------------------------------------------------------
 // ------------------------------- FUNCTION ----------------------------------------------------
@@ -331,23 +381,33 @@ const arrName = ["Felipe", "Luiz", "Pontes", "de", "Andrade"];
 // na notação arrow func o "this" preserva o escopo global do objeto que ela está já na segunda notação o 
 // "this" vai mudar conforme a função se torna mais interna.
 
-const buttonEL = document.querySelector('#enviar')
-console.log(buttonEL)
-buttonEL.addEventListener('click', (e) =>{
-    e.preventDefault();
-    console.log(`arrow function: ${this}`)
-})
-buttonEL.addEventListener('click', function(e){
-    e.preventDefault();
-    console.log(`function(){}: ${this}`)
-})
+// const buttonEL = document.querySelector('#enviar')
+// console.log(buttonEL)
+// buttonEL.addEventListener('click', (e) =>{
+//     e.preventDefault();
+//     console.log(`arrow function: ${this}`)
+// })
+// buttonEL.addEventListener('click', function(e){
+//     e.preventDefault();
+//     console.log(`function(){}: ${this}`)
+// })
 
 // para preservar o contexto do this mesmo com functions mais internas é necessário o .bind
 
-function func(e) {
-    e.preventDefault();
-    console.log(`function(){}: ${this}`)
-}
-const funcBind = func.bind(window)
+// function func(e) {
+//     e.preventDefault();
+//     console.log(`function(){}: ${this}`)
+// }
+// const funcBind = func.bind(window)
 
-buttonEL.addEventListener('click', funcBind)
+// buttonEL.addEventListener('click', funcBind)
+
+
+
+// ---------------------------------------------------------------------------------------------
+// ------------------------------- Lógica ------------------------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// além dos laços convencionais que são o (for, while e do while) existem outros que são mais
+// práticos.
+// O forin roda 
