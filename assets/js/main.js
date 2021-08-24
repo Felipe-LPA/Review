@@ -408,6 +408,4 @@ let auxArr1
 // ------------------------------- Lógica ------------------------------------------------------
 // ---------------------------------------------------------------------------------------------
 
-// além dos laços convencionais que são o (for, while e do while) existem outros que são mais
-// práticos.
-// O forin roda 
+
