@@ -275,18 +275,18 @@ const arrName = ["Felipe", "Luiz", "Pontes", "de", "Andrade"];
 //     console.log(num)
 // }
 
-// e então temos o filter, map e reduce que fazem a iteração em arrays de formas bem específicas 
+// e então temos o filter, map e reduce que fazem a iteração em arrays de formas bem específicas
 // e de alguma forma se complementam
 
-// o map pode receber 3 (param) element, index e array, porém somente o element é obrigatório, 
-// este método retorna um array com o mesmo tamanho do original com seus valores atualizados 
+// o map pode receber 3 (param) element, index e array, porém somente o element é obrigatório,
+// este método retorna um array com o mesmo tamanho do original com seus valores atualizados
 // de acordo com a função passada, esta função pode ser anõnima ou de callback.
-let auxArr1
+let auxArr1;
 // auxArr1 = arr1.map((num, indice, array) => [indice, num*2, array])
 // console.log(auxArr1)
 // auxArr1.forEach(item => console.log(`indice: ${item[0]}, valor: ${item[1]}, array: ${item[2]}`))
 
-// o filter pode receber 3 (param) element, index e array, porém somente o element é obrigatório, 
+// o filter pode receber 3 (param) element, index e array, porém somente o element é obrigatório,
 // este método retorna um array com mesmo tamanho ou menor do que o original, visto que os valores
 // do array podem ou não atender o filtro passado como para a função.
 // auxArr1 = arr1.filter((num, indice, array) => {
@@ -295,7 +295,7 @@ let auxArr1
 // })
 // console.log(auxArr1)
 
-// o reduce pode receber 5 (param) previusValue, currentValue, index, array e initialValue sendo 
+// o reduce pode receber 5 (param) previusValue, currentValue, index, array e initialValue sendo
 // obrigatório somente os 2 primeiros, este método retorna um dado de acordo com o passado como
 // valor inicial ou valores do array
 // auxArr1 = arr1.reduce((accumulator, num, index, array) => {
@@ -309,9 +309,6 @@ let auxArr1
 
 // auxArr1 = arr1.filter(num => num % 2 === 0).map(num => num * 2).reduce((ac, num) => ac + num, 0)
 // console.log(auxArr1)
-
-
-
 
 // ---------------------------------------------------------------------------------------------
 // ------------------------------- FUNCTION ----------------------------------------------------
@@ -339,7 +336,7 @@ let auxArr1
 //   console.log(total);
 // };
 
-// no caso da array func é necessário usar o rest para armazenar os (param) não declarados e caso 
+// no caso da array func é necessário usar o rest para armazenar os (param) não declarados e caso
 // a função possua (param) declarados o rest precisa ser o último (param)
 // const func = ( ...args) => {
 //     let total = 0;
@@ -378,7 +375,7 @@ let auxArr1
 // !function( n=2 ){console.log(n)}()
 
 // Em uma função, quando se utilizado o "this" há uma diferença com as notações arrow func e a function(){}
-// na notação arrow func o "this" preserva o escopo global do objeto que ela está já na segunda notação o 
+// na notação arrow func o "this" preserva o escopo global do objeto que ela está já na segunda notação o
 // "this" vai mudar conforme a função se torna mais interna.
 
 // const buttonEL = document.querySelector('#enviar')
@@ -402,10 +399,53 @@ let auxArr1
 
 // buttonEL.addEventListener('click', funcBind)
 
-
-
 // ---------------------------------------------------------------------------------------------
 // ------------------------------- Lógica ------------------------------------------------------
 // ---------------------------------------------------------------------------------------------
 
+// o curto circuito pode ser utilizado para simplificar condicionais com testes lógicos, dentre
+// suas várias utilizações com o operador AND pode ser realizado o teste se a váriavel já foi
+// iniciada antes de utiliza-la, já que que caso a condição anterior não for satisfeita, as
+// demais não serão nem testadas.
+// let possuiValor;
 
+// possuiValor && console.log(possuiValor);
+// possuiValor = 10;
+// possuiValor && console.log(possuiValor);
+
+// já o operador OR no curto circuito faz com que quando a primeira condição for satisfeita o
+// restante seja ignorado.
+
+// let cor;
+// let corAplicada = cor || "Preto";
+
+// console.log(corAplicada);
+// cor = "vermelho";
+// corAplicada = cor || "Preto";
+// console.log(corAplicada);
+
+// O operador NOT assim como em outras lógicas serve para inverter o resultado da comparação e
+// pode ser utilizado em conjunto com o OR e o AND.
+// let possuiValor;
+
+// !possuiValor && console.log('não possui valor');
+// possuiValor = 10;
+// !possuiValor && console.log('não possui valor');
+
+// há alguns valores que quando utilizados em uma condicional agiram como um valor falsy, ou seja
+// será interpretado como false, são eles:
+
+// let varUndefined;
+
+// true || console.log("true - Teste lógico False");
+// false || console.log("false - Teste lógico False");
+// 0 || console.log("0 - Teste lógico False");
+// "" || console.log(" '' - Teste lógico False");
+// "" || console.log('"" - Teste lógico False');
+// null || console.log("null - Teste lógico False");
+// undefined || varUndefined || console.log("undefined - Teste lógico False");
+// NaN || "teste" / 2 || console.log("NaN - Teste lógico False");
+
+// ---------------------------------------------------------------------------------------------
+// ------------------------------------- DOM ---------------------------------------------------
+// ---------------------------------------------------------------------------------------------
