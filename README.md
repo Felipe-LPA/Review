@@ -9,4 +9,5 @@
 :three: MATH
 :four: ARRAY
 :five: FUNCTION
+:six: Lógic
 
