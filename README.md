@@ -9,5 +9,6 @@
 :three: MATH
 :four: ARRAY
 :five: FUNCTION
-:six: Lógic
+:six: LÓGIC
+:seven: SETINTERVAL e SETTIMEOUT
 

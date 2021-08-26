@@ -1,0 +1,21 @@
+{
+  "name": "exercicios",
+  "version": "1.0.0",
+  "description": "...in Dev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Felipe-LPA/Review.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Felipe-LPA/Review/issues"
+  },
+  "homepage": "https://github.com/Felipe-LPA/Review#readme",
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -11,8 +11,14 @@ que exigem conhecimento prévio antes de possuir o mesmo.
 
 **Comando Debugger - Pausa a lógica para verificar a mesma.
 
-
-
+Ordem dos tópicos: 
+STRING
+MATH 
+ARRAY 
+FUNCTION 
+LÓGIC
+DOM
+SETINTERVAL e SETTIMEOUT
 
 // ---------------------------------------------------------------------------------------------
 // ------------------------------- STRING  -----------------------------------------------------
@@ -449,3 +455,120 @@ let auxArr1;
 // ---------------------------------------------------------------------------------------------
 // ------------------------------------- DOM ---------------------------------------------------
 // ---------------------------------------------------------------------------------------------
+
+// para selecionar algum elemento DOM temos algumas opções, dentre elas temos o querySelector que
+// pode selecionar através da class, ID, ou até mesmo tag.
+const h1ELClass = document.querySelector(".h1");
+const h1ELId = document.querySelector("#h1");
+const h1ELTag = document.querySelector("h1");
+// já o innerHTML pode acessar ou atribuir o conteudo dentro do elemento. porém caso o conteúdo for
+// somente texto ele possui o mesmo efeito do innerText que é mais rapido.
+// console.log(`Class:${h1ELClass.innerHTML}
+// Id:${h1ELId.innerText}
+// Tag:${h1ELTag.innerHTML}`)
+
+// o getElementBy pode ser usado também para seleção de elementos HTML. porém no caso do ClassName
+// ou Tag por exemplo o retorno é um HTMLColection, que é parecido com um array, por tanto é
+// necessário expecificar o indice. pode ser utilizado tanto o .item, quanto a notação de []
+const outroH1ElId = document.getElementById("h1");
+const outroH1ElClass = document.getElementsByClassName("h1");
+const outroH1ElTag = document.getElementsByTagName("h1");
+// console.log(`Class:${outroH1ElClass.item(0).innerHTML}
+// Id:${outroH1ElId.innerText}
+// Tag:${outroH1ElTag[0].innerHTML}`)
+
+// Lembrando que estes métodos não necessáriamente precisam ser chamados a partir do document.
+// para selecionar todos os Elementos que atendam ao filtro pode ser utilizado o querySelectorAll
+// neste caso o retorno é um nodelist que também é muito parecido com um array.
+const formEL = document.querySelector("#form");
+const allLabels = formEL.querySelectorAll("label");
+// console.log(allLabels)
+
+// o Documento Object Models possui alguns métodos para manipulação de seus elementos.
+
+// activeElement retorna o elemento onFocus.
+// console.log(document.activeElement);
+// const inputEl = document.querySelector('#input-teste-1')
+// inputEl.focus();
+// console.log(document.activeElement);
+
+// body retorna o Body da página em questão.
+// console.log(document.body)
+
+// childElementCount retorna a quantidade de "filhos" o elemento em quastão possui
+// console.log(document.childElementCount)
+// console.log(formEL.childElementCount)
+
+// o children é semelhante ao anterior, porém ao invés de retornar a quantidade, ele retorna os "filhos"
+// console.log(document.children)
+// console.log(formEL.children)
+
+// firstElementChild retorna o primeiro "filho" do elemento.
+// console.log(formEL.firstElementChild)
+
+// lastElementChild retorna o último "filho" do elemento.
+// console.log(formEL.lastElementChild)
+
+// o hidden pode definir/retornar a visibilidade do elemento.
+// console.log(outroH1ElId.hidden)
+// outroH1ElId.hidden = true
+// console.log(outroH1ElId.hidden)
+
+// title pode definir/retornar o título dá página.
+// console.log(document.title)
+// document.title = 'Mudando o Title'
+// console.log(document.title)
+
+// documentURI retorna a URL da página.
+// console.log(document.documentURI)
+
+// o DOM possui alguns eventos:
+
+// addEventLister irá "escutar" eventos do elemento selecionado e irá executar a função passada
+// como parametro quando ocorrer o evento. este método espera até 4 (param) type, listner, options ou
+// useCapture e wantsUntrusted, sendo obrigatório somente os 2 primeiros, o type é o tipo de evento,
+// por exemplo: 'click', 'mouseup', 'load' entre outros. já o segundo é uma função para ser executada.
+
+// const buttonEL = document.querySelector('#enviar')
+// console.log(buttonEL)
+// buttonEL.addEventListener('click', (e) => {
+    // o método prevent.Default() previne que o evento padrão seja executado, como por exemplo
+    // no caso  um botão submit que da reload na página.
+//     e.preventDefault();
+// })
+
+// document.addEventListener('click',  (e) => {
+    // o e que é passado como (param) representa o evento em si, e pode ser utilizado para fazer 
+    // manipulações, o target representa neste caso o local clicado
+    // console.log(e.target)
+    // com a localização do click pode ser verificar o valor do elemento clicado utilizando o value
+    // ou por exemplo o innerHTML, ou outras manipulações mencionadas anteriormente.
+    // console.log('value: ' + e.target.value)
+    // console.log('innerHTML: ' + e.target.innerHTML)
+// })
+
+// ---------------------------------------------------------------------------------------------
+// -------------------------- setInterval e setTimeout -----------------------------------------
+// ---------------------------------------------------------------------------------------------
+
+// o setInterval e setTimeout são métodos para lidar com a necessidade de aguardar um tempo
+// para que algo seja executado, seja uma ou mais vezes.
+
+// setInterval executa algo até que ele seja finalizado de acordo com os (param), este método
+// espera pelo menos até 2 (param) function or Code e delay com ou sem argumentos porém somente
+// o primeiro é obrigatório, o delay é passado em milisegundos. normalmente atribuido para uma
+// variável para que este método tenha um identificador que possa ser utilizado para encerramento
+// do mesmo.
+
+// const tempo = setInterval(()=>{console.log('olá')},10000)
+
+// o clearInterval é utilizado para encerrar a execução do setInterval que foi passado como (param)
+// clearInterval(tempo)
+
+// o setTimeout espera os mesmos (param) do setInterval, porém seu comportamento é um pouco diferente.
+// ele executa a função passada como (param) assim que o dalay for alcançado, somente uma vez.
+
+// const tempo = setTimeout(()=>{console.log('olá')},10000)
+
+// o clearTimeout é utilizado para encerrar a execução do setInterval que foi passado como (param)
+// clearInterval(tempo)
